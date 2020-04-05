@@ -1,0 +1,14 @@
+<b>Users</b>
+ 
+<ul id="users" class="users_container">
+<%= render @users %>
+</ul>
+ 
+<br>
+ 
+<%= form_with(model: @user) do |f| %>
+  <%= f.label :name %><br>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.submit %>
+<% end %>
