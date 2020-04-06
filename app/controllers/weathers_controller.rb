@@ -2,11 +2,11 @@ class WeathersController < ApplicationController
   protect_from_forgery with: :null_session
 
   def index
-    @weathers = Weather.all.order("created_at DESC").limit(25)
+    @weathers = Weather.all.order("created_at DESC").limit(15)
   end
 
-  def create
-    @weathers = Weather.all.order("created_at DESC").limit(25)
+  def new
+    @weathers = Weather.all.order("created_at DESC").limit(15)
     # Call the OpenWeatherMap API and retrieve the current weather data.
     response = Faraday.get("https://api.openweathermap.org/data/2.5/weather?zip=#{params['zip']}&units=metric&appid=8e6a821f8ce110463faa10800583add5")
 
@@ -25,8 +25,8 @@ class WeathersController < ApplicationController
     f_current = helpers.celsius_to_fahrenheit_converter(c_current)
     f_average = helpers.celsius_to_fahrenheit_converter(c_average)
 
-    # Create new entry in Database with prepped data.
-    @weather = Weather.create(zip: zip, c_high: c_high, c_low: c_low, c_current: c_current, c_average: c_average, f_high: f_high, f_low: f_low, f_current: f_current, f_average: f_average)
+    # Setup a new entry for Database with prepped data.
+    @weather = Weather.new(zip: zip, c_high: c_high, c_low: c_low, c_current: c_current, c_average: c_average, f_high: f_high, f_low: f_low, f_current: f_current, f_average: f_average)
     
 
     respond_to do |format|
@@ -34,8 +34,17 @@ class WeathersController < ApplicationController
       format.js
       format.json { render json: @weather }
     end
-  end #End Obtain Action
+  end
+
+  def create
+    puts "~~~~~~~ #{params}"
+    @weather = Weather.create(zip: params[:zip], c_high: params[:c_high], c_low: params[:c_low], c_current: params[:c_current], c_average: params[:c_average], f_high: params[:f_high], f_low: params[:f_low], f_current: params[:f_current], f_average: params[:f_average])
+    @weathers = Weather.all.order("created_at DESC").limit(15)
+  end
 
   private
 
+    def weathers_params
+      params.require(:weathers).permit(:zip, :c_high, :c_low, :c_average, :c_current, :f_high, :f_low, :f_average, :f_current)
+    end
 end

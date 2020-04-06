@@ -1,4 +1,4 @@
-<%= form_tag 'weathers/create', remote: true do %>
+<%= form_tag 'weathers/new', remote: true do %>
   <%= hidden_field_tag :zip, "#{weather.zip}" %>
   <br>
   <%= submit_tag "#{weather.zip}", class: "prev_search_button" %>

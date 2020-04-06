@@ -1,26 +1,24 @@
-<ul id="temp_display_container">
   <ul class="temp_section">
-    <li class="temp_item"><span class="temp_item_bold">Zip Code:</span></li>
+    <li class="temp_item temp_item_title">Zip Code:</li>
     <li class="temp_item"><%= @weather.zip %></li>
   </ul>
   <ul class="temp_section">
-    <li class="temp_item"><span class="temp_item_bold">Daily High:</span></li>
+    <li class="temp_item temp_item_title">Daily High:</li>
     <li class="temp_item show_celcius hidden"><%= @weather.c_high %> ℃</li>
     <li class="temp_item show_fahrenheit show"><%= @weather.f_high %> ℉</li>
   </ul>
   <ul class="temp_section">
-    <li class="temp_item"><span class="temp_item_bold">Daily Low:</span></li>
+    <li class="temp_item temp_item_title">Daily Low:</li>
     <li class="temp_item show_celcius hidden"><%= @weather.c_low %> ℃</li>
     <li class="temp_item show_fahrenheit show"><%= @weather.f_low %> ℉</li>
   </ul>
   <ul class="temp_section">
-    <li class="temp_item"><span class="temp_item_bold">Current:</span></li>
+    <li class="temp_item temp_item_title">Current:</li>
     <li class="temp_item show_celcius hidden"><%= @weather.c_current %> ℃</li>
     <li class="temp_item show_fahrenheit show"><%= @weather.f_current %> ℉</li>
   </ul>
   <ul class="temp_section">
-    <li class="temp_item"><span class="temp_item_bold">Average:</span></li>
+    <li class="temp_item temp_item_title">Average:</li>
     <li class="temp_item show_celcius hidden"><%= @weather.c_average %> ℃</li>
     <li class="temp_item show_fahrenheit show"><%= @weather.f_average %> ℉</li>
   </ul>
-</div>

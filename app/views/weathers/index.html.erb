@@ -3,7 +3,7 @@
   <h1 id="i_title">Weather Buddy</h1>
 
   <div id="zip_form_container">
-    <%= form_tag 'weathers/create', remote: true do %>
+    <%= form_tag 'weathers/new', remote: true do %>
       <%= text_field_tag :zip, "", placeholder: "Zip Code", id: "zip_input" %>
       <br>
       <%= submit_tag "Get Weather", class: "i_button" %>
@@ -35,7 +35,10 @@
 
     </div>
 
-    <div id="current_weather_container"></div>
+    <div id="current_weather_container">
+      <h4 id="current_weather_title">Your Forecast:</h4>
+
+    </div>
     
   </div>
 

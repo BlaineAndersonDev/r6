@@ -1,3 +1,22 @@
 <div class="display_container">
   <%= render :partial => "temperature_display" %>
+
+  <div id="refresh_button_container">
+    <%= form_tag 'weathers/new', class: "refresh_button_form", remote: true do %>
+      <%= hidden_field_tag :zip, "#{@weather.zip}" %>
+      <%= submit_tag "Refresh", class: "i_button" %>
+    <% end %>
+    <%= form_tag 'weathers', "weathers"=>"", class: "refresh_button_form", remote: true do %>
+      <%= hidden_field_tag :zip, @weather.zip %>
+      <%= hidden_field_tag :c_high, @weather.c_high %>
+      <%= hidden_field_tag :c_low, @weather.c_low %>
+      <%= hidden_field_tag :c_current, @weather.c_current %>
+      <%= hidden_field_tag :c_average, @weather.c_average %>
+      <%= hidden_field_tag :f_high, @weather.f_high %>
+      <%= hidden_field_tag :f_low, @weather.f_low %>
+      <%= hidden_field_tag :f_current, @weather.f_current %>
+      <%= hidden_field_tag :f_average, @weather.f_average %>
+      <%= submit_tag "Save", class: "i_button" %>
+    <% end %>
+  </div>
 </div>
