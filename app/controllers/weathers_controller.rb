@@ -2,16 +2,13 @@ class WeathersController < ApplicationController
   protect_from_forgery with: :null_session
 
   def index
-    @weathers = Weather.all.order("created_at DESC").limit(10)
+    @weathers = Weather.all.order("created_at DESC").limit(25)
   end
 
   def create
+    @weathers = Weather.all.order("created_at DESC").limit(25)
     # Call the OpenWeatherMap API and retrieve the current weather data.
     response = Faraday.get("https://api.openweathermap.org/data/2.5/weather?zip=#{params['zip']}&units=metric&appid=8e6a821f8ce110463faa10800583add5")
-
-    if response['status'] == 404
-      puts "ERROR!!!"
-    end
 
     # Parse the results into usable JSON.
     parsed_weather = JSON(response.body)

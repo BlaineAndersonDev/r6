@@ -1,0 +1,6 @@
+<div id="previous_searches_container">
+  <h3 id="previous_searches_title">Previous Searches</h3>
+  <% @weathers.each do |weather| %>
+    <%= render :partial => "previous_searches", locals: {weather: weather} %>
+  <% end %>
+</div>

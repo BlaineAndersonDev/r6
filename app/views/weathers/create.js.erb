@@ -1,2 +1,4 @@
 $(".display_container").remove();
+$("#previous_searches_container").remove();
 $("<%= escape_javascript(render partial: 'display') %>").appendTo("#current_weather_container");
+$("<%= escape_javascript(render partial: 'search_history') %>").appendTo("#sidebar_container");
