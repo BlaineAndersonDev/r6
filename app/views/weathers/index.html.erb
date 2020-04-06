@@ -1,8 +1,12 @@
-<h1>Weather App</h1>
-<p id="weather_header">Weather Body: <%= @weather %></p>
- 
-<%= form_tag 'weathers/create', remote: true do %>
-  <%= text_field_tag :zip, "zip" %>
-  <br>
-  <%= submit_tag "Get Weather"%>
-<% end %>
+<div id="app_container">
+
+  <h1>Weather Buddy</h1>
+  <div id="current_weather_container"></div>
+  
+  <%= form_tag 'weathers/create', remote: true do %>
+    <%= text_field_tag :zip, "zip" %>
+    <br>
+    <%= submit_tag "Get Weather"%>
+  <% end %>
+
+</div>

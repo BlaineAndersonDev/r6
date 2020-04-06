@@ -1,10 +1,18 @@
-// Place all the styles related to the Weathers controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
-
+// Used for showing/hiding with AJAX. Do not alter.
 .hidden{
   display: none;
 }
 .show{
   display: inline;
+}
+
+// Normal Styling:
+#app_container{
+  background: whitesmoke;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
 }
