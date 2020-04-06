@@ -36,4 +36,10 @@ class WeathersController < ApplicationController
 
   end #End Obtain Action
 
+  def toggle_to_f
+  end
+
+  def toggle_to_c
+  end
+
 end

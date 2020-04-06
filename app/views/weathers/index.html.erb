@@ -6,6 +6,16 @@
       <br>
       <%= submit_tag "Get Weather"%>
     <% end %>
+    <span class="show_fahrenheit show">
+      <%= form_tag 'weathers/toggle_to_c', remote: true do %>
+        <%= submit_tag "Toggle to Celcius"%>
+      <% end %>
+    </span>
+    <span class="show_celcius hidden">
+      <%= form_tag 'weathers/toggle_to_f', remote: true do %>
+        <%= submit_tag "Toggle to Fahrenheit"%>
+      <% end %>
+    </span>
   </div>
 
   <div id="weather_container">
