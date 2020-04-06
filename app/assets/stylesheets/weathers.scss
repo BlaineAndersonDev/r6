@@ -10,9 +10,33 @@
 #app_container{
   background: whitesmoke;
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: row wrap;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   text-align: center;
   height: 100vh;
+  border: purple 1px solid;
 }
+  #title_container{
+    width: 100%;
+  }
+    #index_title{
+    }
+
+#weather_container{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: center;
+  width: 100%;
+  border: green 1px solid;
+}
+  #previous_searches_container{
+    border: red 1px solid;
+    flex: 1
+  }
+  #current_weather_container{
+    border: blue 1px solid;
+    flex: 3
+  }

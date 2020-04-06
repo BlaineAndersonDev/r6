@@ -1,12 +1,20 @@
 <div id="app_container">
+  <div id="title_container">
+    <h1 id="index_title">Weather Buddy</h1>
+    <%= form_tag 'weathers/create', remote: true do %>
+      <%= text_field_tag :zip, "zip" %>
+      <br>
+      <%= submit_tag "Get Weather"%>
+    <% end %>
+  </div>
 
-  <h1>Weather Buddy</h1>
-  <div id="current_weather_container"></div>
-  
-  <%= form_tag 'weathers/create', remote: true do %>
-    <%= text_field_tag :zip, "zip" %>
-    <br>
-    <%= submit_tag "Get Weather"%>
-  <% end %>
+  <div id="weather_container">
+    <div id="previous_searches_container">
+      <% @weathers.each do |weather| %>
+        <%= render :partial => "previous_searches", locals: {weather: weather} %>
+      <% end %>
+    </div>
+    <div id="current_weather_container"></div>
+  </div>
 
-</div>
+</div> 
