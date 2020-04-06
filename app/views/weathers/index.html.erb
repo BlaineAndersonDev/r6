@@ -2,7 +2,7 @@
   <div id="title_container">
     <h1 id="index_title">Weather Buddy</h1>
     <%= form_tag 'weathers/create', remote: true do %>
-      <%= text_field_tag :zip, "zip" %>
+      <%= text_field_tag :zip, "", placeholder: "Zip Code" %>
       <br>
       <%= submit_tag "Get Weather"%>
     <% end %>
