@@ -32,9 +32,6 @@ class WeathersController < ApplicationController
     @weather = Weather.create(zip: zip, c_high: c_high, c_low: c_low, c_current: c_current, c_average: c_average, f_high: f_high, f_low: f_low, f_current: f_current, f_average: f_average)
     
 
-    # CSS is NOT required (but do a little anyway)
-    # Implement RSpec testing for model & API methods
-    # Add some failsafes and edge case error catching.
     respond_to do |format|
       format.html { render :action => :show }
       format.js
