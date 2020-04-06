@@ -1,4 +1,5 @@
 class WeathersController < ApplicationController
+  protect_from_forgery with: :null_session
 
   def index
     @weathers = Weather.all.order("created_at DESC").limit(10)
@@ -8,9 +9,13 @@ class WeathersController < ApplicationController
     # Call the OpenWeatherMap API and retrieve the current weather data.
     response = Faraday.get("https://api.openweathermap.org/data/2.5/weather?zip=#{params['zip']}&units=metric&appid=8e6a821f8ce110463faa10800583add5")
 
+    if response['status'] == 404
+      puts "ERROR!!!"
+    end
+
     # Parse the results into usable JSON.
     parsed_weather = JSON(response.body)
-
+    
     # Create varaibles to contain required data for consumption.
     zip = params['zip']
     c_high = parsed_weather['main']['temp_max']
@@ -30,7 +35,11 @@ class WeathersController < ApplicationController
     # CSS is NOT required (but do a little anyway)
     # Implement RSpec testing for model & API methods
     # Add some failsafes and edge case error catching.
-
+    respond_to do |format|
+      format.html { render :action => :show }
+      format.js
+      format.json { render json: @weather }
+    end
   end #End Obtain Action
 
   private
