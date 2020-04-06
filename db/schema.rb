@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_05_210154) do
+ActiveRecord::Schema.define(version: 2020_04_06_001901) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "weathers", force: :cascade do |t|
+    t.integer "zip"
+    t.integer "c_high"
+    t.integer "c_low"
+    t.integer "c_current"
+    t.integer "c_average"
+    t.integer "f_high"
+    t.integer "f_low"
+    t.integer "f_current"
+    t.integer "f_average"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

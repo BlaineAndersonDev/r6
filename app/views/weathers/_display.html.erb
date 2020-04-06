@@ -1,1 +1,5 @@
-<p>NEW WEATHER: <%= @weather %></p>
+<div id="display_container">
+  <h3>NEW WEATHER</h3>
+  <%= render :partial => "celcius" %>
+  <%= render :partial => "fahrenheit" %>
+</div>

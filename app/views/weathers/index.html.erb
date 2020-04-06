@@ -1,6 +1,5 @@
-<b>Users</b>
-<h1 id="weather_header">Weather App</h1>
-<p>Weather Body: <%= @weather %></p>
+<h1>Weather App</h1>
+<p id="weather_header">Weather Body: <%= @weather %></p>
  
 <%= form_tag 'weathers/create', remote: true do %>
   <%= text_field_tag :zip, "zip" %>
